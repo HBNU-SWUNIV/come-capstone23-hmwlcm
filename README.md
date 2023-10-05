@@ -76,9 +76,13 @@
 
 <img src ="https://user-images.githubusercontent.com/128362238/272832025-825fe6fb-3704-49d9-98db-214cdf0ca622.PNG" width="90%"><img>
 
-  + 바꾼 배열의 값이 제대로 작동하는 지 테스트하기 위해 작성한 출력 코드는 아래와 같다. 
+  + 바꾼 배열의 값이 제대로 작동하는 지 테스트하기 위해 작성한 출력 코드 일부는 아래와 같다. 
 
 <img src ="https://user-images.githubusercontent.com/128362238/272832102-e1f9fbb1-2247-4adf-8de4-3f56d32580c9.PNG" width="90%"></img>
+
+ + Web Server에서 post 요청을 받아 Tmap API 결과 json을 반환하는 부분에 대한 일부 코드는 아래와 같다. Web Server는 Apache의 html에 php언어를 적용하여 작성하였다.
+
+<img src ="https://user-images.githubusercontent.com/128362238/272840284-bba69bed-d185-4b4f-add1-7019773eb836.PNG" width="90%"></img>
  
 # Conclusion
 + **개발 어플리케이션 문제점**
