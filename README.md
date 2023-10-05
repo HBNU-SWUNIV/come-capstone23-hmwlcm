@@ -56,7 +56,7 @@
 <img src = "https://user-images.githubusercontent.com/128362238/270867707-b7fbf85e-e1de-4184-a631-96dbbee422a0.png" width="90%"></img>
 
 + **Tmap API 사용**
-  + Tmap API를 통해 각 여행지별 이동거리, 이동시간을 알 수 있다. 이를 사용하기위해 Tmap API 요청 json 형식을 따라야 하는데, 이때 json 형식은 Tmap API 공식 사이트에서 확인할 수 있다.
+  + Tmap API를 통해 각 여행지별 이동거리, 이동시간을 알 수 있다. Tmap API에서도 여러 종류의 요청 url이 존재하는데, 해당 개발 어플리케이션에서는 Tmap API의 다중 경유지 요청 url을 사용한다. 이를 사용하기위해 Tmap API 요청 json 형식을 따라야 하는데, 이때 json 형식은 Tmap API 공식 사이트에서 확인할 수 있다.
 
 <img src = "https://user-images.githubusercontent.com/128362238/272831534-7479d903-12da-4bb9-a0e4-920c0ace8461.PNG" width="90%"></img>
 
