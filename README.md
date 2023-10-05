@@ -55,6 +55,30 @@
 
 <img src = "https://user-images.githubusercontent.com/128362238/270867707-b7fbf85e-e1de-4184-a631-96dbbee422a0.png" width="90%"></img>
 
++ **Tmap API 사용**
+  + Tmap API를 통해 각 여행지별 이동거리, 이동시간을 알 수 있다. 이를 사용하기위해 Tmap API 요청 json 형식을 따라야 하는데, 이때 json 형식은 Tmap API 공식 사이트에서 확인할 수 있다.
+
+<img src = "https://user-images.githubusercontent.com/128362238/272831534-7479d903-12da-4bb9-a0e4-920c0ace8461.PNG" width="90%"></img>
+
+  + Tmap API에 필요한 json 형식은 아래의 함수 코드를 통해 여행지 순서에 맞추어 [ 여행지, 경도, 위도 ] 배열을 인자로 받는다. 여행지 순서에 따라 Tmap API 문서에서 지정한 json 형식으로 바꿔준다.
+
+<img src = "https://user-images.githubusercontent.com/128362238/272831798-21b2605c-de7a-4407-8c95-8ae991812d9e.PNG" width="90%"></img>
+
+  + Tmap API를 구현한 Web Server로 해당 json을 보내면, 그에 따른 Tmap API 결과 json을 받을 수 있다. 아래의 사진은 Web Server로 Tmap API에 대한 post요청을 보내는 부분의 코드이다.
+
+<img src = "https://user-images.githubusercontent.com/128362238/272831670-822316b8-1f9f-445b-afed-aee47c9182f2.PNG" width="90%"></img>
+
+  + Tmap API에서 반환해주는 json에 대한 샘플은 아래의 사진과 같다.
+
+<img src = "https://user-images.githubusercontent.com/128362238/272831896-095e988c-e095-4938-a3e0-1c0d1c6eb490.PNG" width="90%"><img>
+
+  + 반환받은 Tmap API json값을 그대로 이용할 수는 있지만, 복잡한 구조로 짜여진 json을 그대로 사용하기에는 쉽지 않다. 그래서, flutter에서 사용하기 쉽게 flutter 배열로 바꾸는 코드를 작성하였고, 이는 아래 사진과 같다. 주로 사용할 정보는 [ 여행지 이름, 이동시간, 이동거리 ] 이기때문에 해당 값만을 배열로 바꾸었다.
+
+<img src ="https://user-images.githubusercontent.com/128362238/272832025-825fe6fb-3704-49d9-98db-214cdf0ca622.PNG" width="90%"><img>
+
+  + 바꾼 배열의 값이 제대로 작동하는 지 테스트하기 위해 작성한 출력 코드는 아래와 같다. 
+
+<img src ="https://user-images.githubusercontent.com/128362238/272832102-e1f9fbb1-2247-4adf-8de4-3f56d32580c9.PNG" width="90%"></img>
  
 # Conclusion
 + **개발 어플리케이션 문제점**
