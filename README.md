@@ -80,9 +80,13 @@
 
 <img src ="https://user-images.githubusercontent.com/128362238/272832102-e1f9fbb1-2247-4adf-8de4-3f56d32580c9.PNG" width="90%"></img>
 
- + Web Server에서 post 요청을 받아 Tmap API 결과 json을 반환하는 부분에 대한 일부 코드는 아래와 같다. Web Server는 Apache의 html에 php언어를 적용하여 작성하였다.
+  + Web Server에서 post 요청을 받아 Tmap API 결과 json을 반환하는 부분에 대한 일부 코드는 아래와 같다. Web Server는 Apache의 html에 php언어를 적용하여 작성하였다.
 
 <img src ="https://user-images.githubusercontent.com/128362238/272840284-bba69bed-d185-4b4f-add1-7019773eb836.PNG" width="90%"></img>
+
+  + Apache에 적용한 PHP 언어의 기본 info는 아래의 사진과 같다.
+
+<img src = "https://user-images.githubusercontent.com/128362238/274367406-0c70059f-81c5-454c-aa65-733e38c0d720.PNG" width="90%></img>
  
 # Conclusion
 + **개발 어플리케이션 문제점**
