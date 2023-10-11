@@ -86,7 +86,7 @@
 
   + Apache에 적용한 PHP 언어의 기본 info는 아래의 사진과 같다.
 
-<img src = "https://user-images.githubusercontent.com/128362238/274367406-0c70059f-81c5-454c-aa65-733e38c0d720.PNG" width="90%></img>
+<img src ="https://user-images.githubusercontent.com/128362238/274367406-0c70059f-81c5-454c-aa65-733e38c0d720.PNG" width="90%"></img>
  
 # Conclusion
 + **개발 어플리케이션 문제점**
