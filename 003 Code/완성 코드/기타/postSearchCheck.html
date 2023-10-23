@@ -1,0 +1,143 @@
+<?php 
+
+function fn_bodySave($value, $IDvalue, $result) {
+    // ID로 각 사람들마다 웹뷰 페이지가 겹치지 않도록 만듬.
+    // 이를 위해 자동으로 각 사람들의 ID로 폴더가 만들어져서 그 안에서
+    // 각 웹뷰가 작동되도록 메인 Tamp 지도 사이트를 복사시켜서 만듬
+    // 그래서 메인의 Tmap 지도 사이트만 수정해도 모든 ID 폴더에 자동 적용 가능
+    // ID를 따로 사용하지 않을 때라도 flutter 내에서 ID 변수를 json 내에 넣어 작동하도록 해야함.
+
+    $ID = $IDvalue;
+    $folderName1 = $ID;
+
+    $copyBasic = './resultBasicSearch.html';
+
+    $copyBasicPath = './'.$ID.'/resultBasicSearch.html';
+
+    $copyMulti = './resultMultipleSearch.html';
+    $copyMultiPath = './'.$ID.'/resultMultipleSearch.html';
+
+    $copyonlyTwo = './resultonlyTwoSearch.html';
+    $copyonlyTwoPath = './resultonlyTwoSearch.html';
+
+    if(!is_dir($folderName1)){
+        mkdir($folderName1, 0777);
+        copy($copyBasic, $copyBasicPath);
+        copy($copyMulti, $copyMultiPath);
+        copy( $copyonlyTwo,  $copyonlyTwoPath);
+    }
+    else{
+        copy($copyBasic, $copyBasicPath);
+        copy($copyMulti, $copyMultiPath);
+        copy( $copyonlyTwo,  $copyonlyTwoPath);
+    }
+
+    // 내용을 저장할 파일명
+    $fileName1 = "./".$ID."/viapointinfo.json";
+    // viapoint가 없는 출발지와 도착지만 있는 요청에도 그냥 사용하기로 함
+
+	$fileName2 = "./".$ID."/re.json";
+
+    // 파일 열기
+    $fp1 = fopen($fileName1, 'w');
+
+    // 파일 쓰기
+    $fw1 = fwrite($fp1, $value);
+
+	//if ($fw1 == false) {
+	//	echo '파일 쓰기에 실패했습니다.';
+	//  } else {
+    //    echo '파일 쓰기 성공.';
+	//  }
+
+    fclose($fp1);
+
+	// 파일 열기
+	$fp2 = fopen($fileName2, 'w');
+
+    // 파일 쓰기
+    $fw2 = fwrite($fp2, $result);
+
+	//if ($fw2 == false) {
+	//	echo '파일 쓰기에 실패했습니다.';
+	//  } else { }
+
+    fclose($fp2);
+
+    return;
+}
+
+
+
+
+$uri = $_SERVER['REQUEST_URI'];
+$uri = explode('/', $uri);
+
+$requestMethod = $_SERVER["REQUEST_METHOD"];
+switch ($requestMethod) {
+	case 'GET':
+		//header('Content-Type: application/json; charset=UTF-8');
+		//header("HTTP/1.1 200 OK");
+
+		echo "Get 통신 성공";
+		break;
+	case 'POST':
+		header('Content-Type: application/json; charset=UTF-8');
+		$inputJSON = file_get_contents('php://input'); // POST 데이터 받기
+		$input =  json_decode( $inputJSON, true ); // Json으로 받은 데이터 decode
+
+
+		$allkeys = array_keys($input);
+
+        if ($input[$allkeys[1]] == 'basic') // 일반적인 경로 요청 api url
+        {
+            $url = "https://apis.openapi.sk.com/tmap/routes/routeSequential30?version=1&format=json";
+        }
+        else if($input[$allkeys[1]] == 'multi') // 다중경로 최적화 요청 api url
+        {
+            $url = "https://apis.openapi.sk.com/tmap/routes/routeOptimization10?version=1&format=json"; //접속할 url 입력
+        }
+        else // 출발지와 도착지만 있는 경로 요청 api url
+        {
+            $url = "https://apis.openapi.sk.com/tmap/routes?version=1&format=json&callback=result&appKey=VEdIt3oQBPatM7R3WShxP5rZV5WN2twO8fxGTIii";
+        }
+
+$header_data = [];
+$header_data[] .= 'Content-Type: application/json';
+$header_data[] .= 'appKey: VEdIt3oQBPatM7R3WShxP5rZV5WN2twO8fxGTIii';
+
+$ch = curl_init(); //curl 사용 전 초기화 필수(curl handle)
+
+curl_setopt($ch, CURLOPT_URL, $url); //URL 지정하기
+curl_setopt($ch, CURLOPT_POST, 1); //0이 default 값이며 POST 통신을 위해 1로 설정해야 함
+
+curl_setopt ($ch, CURLOPT_POSTFIELDS, $inputJSON); //POST로 보낼 데이터 지정하기
+ 
+curl_setopt($ch, CURLOPT_HEADER, true);//헤더 정보를 보내도록 함(*필수)
+curl_setopt($ch, CURLOPT_HTTPHEADER, $header_data); //header 지정하기
+curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); //이 옵션이 0으로 지정되면 curl_exec의 결과값을 브라우저에 바로 보여줌. 이 값을 1로 하면 결과값을 return하게 되어 변수에 저장 가능(테스트 시 기본값은 1인듯?)
+$res = curl_exec ($ch);
+ 
+echo curl_errno($ch);//마지막 에러 번호 출력
+echo curl_error($ch);//현재 세션의 마지막 에러 출력
+curl_close($ch);
+
+$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+$header = substr($res, 0, $header_size);
+$body = substr($res, $header_size);    
+
+fn_bodySave($inputJSON, $input[$allkeys[0]], $body);
+
+echo $body;
+
+//echo "Post 통신 성공\n";
+
+}
+
+//파라미터를 추가적으로 전달 될 시
+//$params = explode('?', $requestUri);
+//이 코드를 통해 파라미터 부분만 구별 가능.
+
+?>
+
+

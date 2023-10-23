@@ -1,0 +1,125 @@
+<?php
+
+$url = './re.json'; // JSON 파일 경로
+
+$jsondata = './viapointinfo.json';
+
+$da = file_get_contents($url);
+
+$markerdata = file_get_contents($jsondata);
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>simpleMap</title>
+		<script	src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=VEdIt3oQBPatM7R3WShxP5rZV5WN2twO8fxGTIii"></script>
+		<script type="text/javascript">
+
+var map;
+var marker_s, marekr_e;
+
+//경로그림정보
+var drawInfoArr = [];
+
+
+
+
+function initTmap(){
+
+	var markerjson = <?=$markerdata?>;
+	// 1. 지도 띄우기
+	map = new Tmapv2.Map("map_div", {
+		center: new Tmapv2.LatLng(markerjson.startY, markerjson.startX),
+		width : "100%",
+		height : "400px",
+		zoom : 14,
+		zoomControl : true,
+		scrollwheel : true
+	});
+	
+	// 시작, 도착 심볼찍기
+	// 시작
+	marker_s = new Tmapv2.Marker({
+		position : new Tmapv2.LatLng(markerjson.startY, markerjson.startX),
+		icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+		iconSize : new Tmapv2.Size(24, 38),
+		map:map
+	});
+	
+	// 도착 
+	marker_e = new Tmapv2.Marker({
+		position : new Tmapv2.LatLng(markerjson.endY, markerjson.endX),
+		icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
+		iconSize : new Tmapv2.Size(24, 38),
+		map:map
+	});
+
+	
+    for(i = 0; i < Object.keys(markerjson.viaPoints).length; i++)
+        {
+            marker = new Tmapv2.Marker({
+		        position : new Tmapv2.LatLng(markerjson.viaPoints[i].viaY, markerjson.viaPoints[i].viaX),
+		        icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_"+(i+1)+".png",
+		        iconSize : new Tmapv2.Size(24, 38),
+		        map:map
+	        });
+        } 
+
+            var response = <?=$da?>;
+
+            var resultData = response.properties;
+			var resultFeatures = response.features;
+			
+			// 결과 출력
+			var tDistance = "총 거리 : " + (resultData.totalDistance/1000).toFixed(1) + "km,  ";
+			var tTime = "총 시간 : " + (resultData.totalTime/60).toFixed(0) + "분,  ";
+			var tFare = "총 요금 : " + resultData.totalFare + "원";
+			
+			$("#result").text(tDistance+tTime+tFare);
+			
+			for(var i in resultFeatures) {
+				var geometry = resultFeatures[i].geometry;
+				var properties = resultFeatures[i].properties;
+				var polyline_;
+				
+				drawInfoArr = [];
+				
+				if(geometry.type == "LineString") {
+					for(var j in geometry.coordinates){
+						// 경로들의 결과값(구간)들을 포인트 객체로 변환 
+						var latlng = new Tmapv2.Point(geometry.coordinates[j][0], geometry.coordinates[j][1]);
+						// 포인트 객체를 받아 좌표값으로 변환
+						var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
+						// 포인트객체의 정보로 좌표값 변환 객체로 저장
+						var convertChange = new Tmapv2.LatLng(convertPoint._lat, convertPoint._lng);
+						
+						drawInfoArr.push(convertChange);
+					}
+
+					polyline_ = new Tmapv2.Polyline({
+						path : drawInfoArr,
+						strokeColor : "#FF0000",
+						strokeWeight: 6,
+						map : map
+					});
+				}
+			}
+}	
+	
+
+</script>
+<body onload="initTmap()">
+	<p id="result"></p>
+
+		
+		<div id="map_wrap" class="map_wrap">
+			<div id="map_div"></div>
+		</div>
+	</body>
+</html>	
+				
