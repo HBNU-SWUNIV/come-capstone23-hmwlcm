@@ -65,7 +65,7 @@
 
 <img src = "https://user-images.githubusercontent.com/128362238/272831798-21b2605c-de7a-4407-8c95-8ae991812d9e.PNG" width="90%"></img>
 
-  + Tmap API를 구현한 Web Server로 해당 json을 보내면, 그에 따른 Tmap API 결과 json을 받을 수 있다. 아래의 사진은 Web Server로 Tmap API에 대한 post요청을 보내는 부분의 코드이다.
+  + Tmap API 요청 json을 보내면, 그에 따른 Tmap API 결과 json을 받을 수 있다. 아래의 사진은 Tmap API에 대한 post요청을 보내며 Tmap API를 테스트할 때의 코드이다.
 
 <img src = "https://user-images.githubusercontent.com/128362238/272831670-822316b8-1f9f-445b-afed-aee47c9182f2.PNG" width="90%"></img>
 
@@ -73,7 +73,7 @@
 
 <img src = "https://user-images.githubusercontent.com/128362238/272831896-095e988c-e095-4938-a3e0-1c0d1c6eb490.PNG" width="90%"><img>
 
-  + 반환받은 Tmap API json값을 그대로 이용할 수는 있지만, 복잡한 구조로 짜여진 json을 그대로 사용하기에는 쉽지 않다. 그래서, flutter에서 사용하기 쉽게 flutter 배열로 바꾸는 코드를 작성하였고, 이는 아래 사진과 같다. 주로 사용할 정보는 [ 여행지 이름, 이동시간, 이동거리 ] 이기때문에 해당 값만을 배열로 바꾸었다.
+  + 반환받은 Tmap API json값을 그대로 이용할 수는 있지만, 복잡한 구조로 짜여진 json을 그대로 사용하기에는 쉽지 않다. 그래서, 테스트하는 동안 flutter에서 사용하기 쉽게 flutter 배열로 바꾸는 코드를 작성하였고, 이는 아래 사진과 같다. 주로 사용할 정보는 [ 여행지 이름, 이동시간, 이동거리 ] 이기때문에 해당 값만을 배열로 바꾸었다.
 
 <img src ="https://user-images.githubusercontent.com/128362238/272832025-825fe6fb-3704-49d9-98db-214cdf0ca622.PNG" width="90%"><img>
 
