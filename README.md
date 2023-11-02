@@ -56,8 +56,8 @@
 
 <img src = "https://user-images.githubusercontent.com/128362238/270867707-b7fbf85e-e1de-4184-a631-96dbbee422a0.png" width="90%"></img>
 
-+ **Tmap API 사용**
-  + Tmap API를 통해 각 여행지별 이동거리, 이동시간을 알 수 있다. Tmap API에서도 여러 종류의 요청 url이 존재하는데, 해당 개발 어플리케이션에서는 Tmap API의 다중 경유지 요청 url을 사용한다. 이를 사용하기위해 Tmap API 요청 json 형식을 따라야 하는데, 이때 json 형식은 Tmap API 공식 사이트에서 확인할 수 있다.
++ **Tmap API 사용 테스트**
+  + Tmap API를 통해 각 여행지별 이동거리, 이동시간을 알 수 있다. Tmap API에서도 여러 종류의 요청 url이 존재하는데, 테스트할 때는 Tmap API의 다중 경유지 요청 url을 사용했다. 이를 사용하기위해 Tmap API 요청 json 형식을 따라야 하는데, 이때 json 형식은 Tmap API 공식 사이트에서 확인할 수 있다. 다른 url로 경로 요청 시에도 json의 요청 내부 내용이 조금 다를 뿐, 기본 구조는 같다.
 
 <img src = "https://user-images.githubusercontent.com/128362238/272831534-7479d903-12da-4bb9-a0e4-920c0ace8461.PNG" width="90%"></img>
 
@@ -81,7 +81,7 @@
 
 <img src ="https://user-images.githubusercontent.com/128362238/272832102-e1f9fbb1-2247-4adf-8de4-3f56d32580c9.PNG" width="90%"></img>
 
-  + Web Server에서 post 요청을 받아 Tmap API 결과 json을 반환하는 부분에 대한 일부 코드는 아래와 같다. Web Server는 Apache의 html에 php언어를 적용하여 작성하였다.
+  + 테스트 시에 사용한 Web Server에서 post 요청을 받아 Tmap API 결과 json을 반환하는 부분에 대한 일부 코드는 아래와 같다. Web Server는 Apache의 html에 php언어를 적용하여 작성하였다.
 
 <img src ="https://user-images.githubusercontent.com/128362238/272840284-bba69bed-d185-4b4f-add1-7019773eb836.PNG" width="90%"></img>
 
