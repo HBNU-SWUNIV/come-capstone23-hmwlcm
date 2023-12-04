@@ -22,7 +22,7 @@
 # System Design
 + **시스템 구성도**
   
-<img src = "https://user-images.githubusercontent.com/128362238/270866514-e595d0ce-909b-492d-b2df-1c6071c57d30.PNG" width="90%"></img>
+<img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/assets/128362238/ba79dc35-1804-4ae2-bb8b-cfefe5e273f9" width="90%"></img>
 
 + **개발 기능**
   + 개발 어플리케이션의 핵심 기능 중 하나인 여행지 특성 지표는 ChatGPT를 이용하고 있다. 웹크롤링으로 얻은 정보를 ChatGPT에게 질문하고, 이를 받아 특성 지표 그림으로 표현한다.
