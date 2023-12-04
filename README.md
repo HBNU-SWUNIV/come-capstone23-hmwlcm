@@ -92,8 +92,7 @@
 # Conclusion
 + **완성화면**
 + 여행지 추천 리스트 완성 화면(경기도)
-<img src = "![image](https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/assets/128362238/9c2aa3b4-6fef-4e69-9079-2b6b7790d0f8)
-" width="90%"></img>
+<img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/assets/128362238/e6cbf1b4-3e7c-4c44-b1af-a25d0bd08be7" width="90%"></img>
 
 + 여행지 추천 리스트 완성 화면(대전)
 <img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/issues/11#issue-2023224967" width="90%"></img>
