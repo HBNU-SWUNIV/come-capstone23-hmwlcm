@@ -92,19 +92,24 @@
 # Conclusion
 + **완성화면**
 + 여행지 추천 리스트 완성 화면(경기도)
+  
 <img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/assets/128362238/e6cbf1b4-3e7c-4c44-b1af-a25d0bd08be7" width="50%"></img>
 
 + 여행지 추천 리스트 완성 화면(대전)
+  
 <img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/assets/128362238/48cb25b2-0895-45c0-861c-25452475207f" width="50%"></img>
 
 + 여행지 추천 세부화면
+  
 <img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/assets/128362238/756ad899-f6fc-4e59-bafa-f594a138557e" width="50%"></img>
 <img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/assets/128362238/65cecfa6-bc73-401c-ab3e-6e19c8a537b4" width="50%"></img>
 
 + 여행지 계획 일정 관리 화면
+  
 <img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/assets/128362238/70b6d7d7-9770-46a3-89d2-368cb04386ed" width="50%"></img>
 
 + 여행지 계획 일정 관리 화면(지도, 경로 및 시간 표시)
+  
 <img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/assets/128362238/35a7917d-2146-48ed-a2f0-3527ea293bdf" width="50%"></img>
 
 
