@@ -90,6 +90,24 @@
 <img src ="https://user-images.githubusercontent.com/128362238/274367406-0c70059f-81c5-454c-aa65-733e38c0d720.PNG" width="90%"></img>
  
 # Conclusion
++ **완성화면**
++ 여행지 추천 리스트 완성 화면(경기도)
+<img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/issues/10#issue-2023199529" width="90%"></img>
+
++ 여행지 추천 리스트 완성 화면(대전)
+<img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/issues/11#issue-2023224967" width="90%"></img>
+
++ 여행지 추천 세부화면
+<img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/issues/12#issue-2023227510" width="90%"></img>
+<img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/issues/13#issue-2023228777" width="90%"></img>
+
++ 여행지 계획 일정 관리 화면
+<img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/issues/14#issue-2023231451" width="90%"></img>
+
++ 여행지 계획 일정 관리 화면(지도, 경로 및 시간 표시)
+<img src = "https://github.com/HBNU-SWUNIV/come-capstone23-hmwlcm/issues/15#issue-2023232692" width="90%"></img>
+
+
 + **개발 어플리케이션 문제점**
   + 높은 AI 의존도
      + 개발 어플리케이션의 주요 부분 중 여행지 특성 지표화와 AI 챗봇 시스템은 해당 AI 기업의 데이터 저쟝율에 따라 정확도가 달라진다.
